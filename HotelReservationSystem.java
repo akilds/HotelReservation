@@ -6,16 +6,26 @@ import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import java.time.DayOfWeek;
 
 public class HotelReservationSystem {
 
 	public String hotelName;
-   int rateForRegularCustomerInWeekday;
-	int rateForRegularCustomerInWeekend;
+   public int rateForRegularCustomerInWeekday;
+   public int rateForRegularCustomerInWeekday;
+	public int rateForRegularCustomerInWeekend;
    public ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
 
 	public HotelReservationSystem() {}
 
+   //USE CASE 1
+   public HotelReservationSystem(String hotelName, int rateForRegularCustomer)
+   {
+      this.hotelName = hotelName;
+      this.rateForRegularCustomer = rateForRegularCustomer;
+   }
+
+   //USE CASE 3
 	public HotelReservationSystem(String hotelName,int rateForRegularCustomerInWeekday, int rateForRegularCustomerInWeekend)
 	{
 		this.hotelName = hotelName;
@@ -29,6 +39,7 @@ public class HotelReservationSystem {
 		System.out.println("Rate for Regular Customer : " + this.rateForRegularCustomer);
 	}
 
+   //USE CASE 2
 	void cheapestHotel()
 	{
 		ArrayList<Integer> totalRateInHotel = new ArrayList<Integer>();
@@ -66,6 +77,64 @@ public class HotelReservationSystem {
 	    	System.out.println("Total Rates : $" + totalRateInBridgewood);
 	   }
       else
+	   {
+	    	System.out.println("Ridgewood");
+	    	System.out.println("Total Rates : $" + totalRateInRidgewood);
+	   }
+	}
+
+   //USE CASE 4
+   void cheapestHotel2()
+	{
+		ArrayList<Integer> totalRateInHotel = new ArrayList<Integer>();
+		int totalRateInLakewood = 0;
+		int totalRateInBridgewood = 0;
+		int totalRateInRidgewood = 0;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Checkin date : ");
+		String checkInDate = scanner.nextLine();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyy");
+		LocalDate cInDate = LocalDate.parse(checkInDate,formatter);
+		System.out.println("Enter Checkout date : ");
+		String checkOutDate = scanner.nextLine();
+		LocalDate cOutDate = LocalDate.parse(checkOutDate,formatter);
+	   long noOfDaysBetween = ChronoUnit.DAYS.between(cInDate, cOutDate);
+      System.out.println(noOfDaysBetween);
+	   LocalDate date = cInDate;
+	   int addedDays = 0;
+	   while(addedDays<noOfDaysBetween+1)
+	   {
+	    	if(date.getDayOfWeek()==DayOfWeek.SATURDAY || date.getDayOfWeek()==DayOfWeek.SUNDAY)
+	    	{
+	    		totalRateInLakewood += 90;
+	    		totalRateInBridgewood += 50;
+	    		totalRateInRidgewood += 150;
+	    	}
+	    	else
+	    	{
+	    		totalRateInLakewood += 110;
+	    		totalRateInBridgewood += 150;
+	    		totalRateInRidgewood += 220;
+	    	}
+	    	date = date.plusDays(1);
+	    	++addedDays;
+	    }
+
+	   totalRateInHotel.add(totalRateInLakewood);
+	   totalRateInHotel.add(totalRateInBridgewood);
+	   totalRateInHotel.add(totalRateInRidgewood);
+	   Optional<Integer> minTotalRate = totalRateInHotel.stream().min((i, j) -> i.compareTo(j));
+	   if(minTotalRate.get() == totalRateInLakewood)
+      {
+	    	System.out.println("Lakewood");
+	    	System.out.println("Total Rates : $" + minTotalRate.get());
+	   }
+	   if(minTotalRate.get() == totalRateInBridgewood)
+	   {
+	    	System.out.println("Bridgewood");
+      	System.out.println("Total Rates : $" + totalRateInBridgewood);
+	   }
+	   if(minTotalRate.get() == totalRateInRidgewood)
 	   {
 	    	System.out.println("Ridgewood");
 	    	System.out.println("Total Rates : $" + totalRateInRidgewood);

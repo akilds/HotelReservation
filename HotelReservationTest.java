@@ -40,4 +40,19 @@ public class HotelReservationTest {
 			entry.show();
 		});
 	}
+
+   //TEST CASE 4
+	@Test
+	public void addHotelCheck()
+	{
+		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
+		HotelReservationSystem hotel1 = new HotelReservationSystem();
+		hotel.add(new HotelReservationSystem("Lakewood",110,90));
+		hotel.add(new HotelReservationSystem("Bridgewood",160,50));
+		hotel.add(new HotelReservationSystem("Ridgewood",220,150));	
+		hotel.stream().forEach( entry -> {
+			entry.show();
+		});
+		hotel1.cheapestHotel();
+	}
 }
