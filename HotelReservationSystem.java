@@ -39,6 +39,22 @@ public class HotelReservationSystem {
 		System.out.println("Rate for Regular Customer : " + this.rateForRegularCustomer);
 	}
 
+   public void show2()
+   {
+      System.out.println("Hotel Name : " + this.hotelName);
+      System.out.println("Rate for Regular Customer in Weekdays : " + this.rateForRegularCustomerInWeekday);
+      System.out.println("Rate for Regular Customer in weekends : " + this.rateForRegularCustomerInWeekend);
+   }
+
+   public void show3()
+   {
+      System.out.println("Hotel Name : " + this.hotelName);
+      System.out.println("Hotel Ratings : " + this.hotelRatings);
+      System.out.println("Rate for Regular Customer in Weekdays : " + this.rateForRegularCustomerInWeekday);
+      System.out.println("Rate for Regular Customer in weekends : " + this.rateForRegularCustomerInWeekend);
+   }
+
+
    //USE CASE 2
 	void cheapestHotel()
 	{
