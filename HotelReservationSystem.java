@@ -245,5 +245,50 @@ public class HotelReservationSystem {
 	    	}
 	   }
 	}
+
+   void cheapestHotel4()
+	{
+		ArrayList<Integer> totalRateInHotel = new ArrayList<Integer>();
+		int totalRateInLakewood = 0;
+		int totalRateInBridgewood = 0;
+		int totalRateInRidgewood = 0;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Checkin date : ");
+		String checkInDate = scanner.nextLine();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyy");
+		LocalDate cInDate = LocalDate.parse(checkInDate,formatter);
+		DayOfWeek cInDayOfWeek = cInDate.getDayOfWeek();
+		System.out.println("Enter Checkout date : ");
+		String checkOutDate = scanner.nextLine();
+		LocalDate cOutDate = LocalDate.parse(checkOutDate,formatter);
+		DayOfWeek cOutDayOfWeek = cOutDate.getDayOfWeek();
+	   long noOfDaysBetween = ChronoUnit.DAYS.between(cInDate, cOutDate);
+	   System.out.println(noOfDaysBetween);
+	   LocalDate date = cInDate;
+	   int addedDays = 0;
+	   while(addedDays<noOfDaysBetween+1)
+	   {
+	    	if(date.getDayOfWeek()==DayOfWeek.SATURDAY || date.getDayOfWeek()==DayOfWeek.SUNDAY)
+	    	{
+	    		totalRateInLakewood += 90;
+	    		totalRateInBridgewood += 50;
+	    		totalRateInRidgewood += 150;
+	    	}
+	    	else
+	    	{
+	    		totalRateInLakewood += 110;
+	    		totalRateInBridgewood += 150;
+	    		totalRateInRidgewood += 220;
+	    	}
+	    	date = date.plusDays(1);
+	    	++addedDays;
+	   }
+	   totalRateInHotel.add(totalRateInLakewood);
+	   totalRateInHotel.add(totalRateInBridgewood);
+	   totalRateInHotel.add(totalRateInRidgewood);
+      System.out.println("Ridgewood");
+	   System.out.println("Rating : 5");
+	   System.out.println("Total Rates : $" + totalRateInRidgewood;
+	}
 }
 
