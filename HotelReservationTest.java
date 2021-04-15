@@ -43,19 +43,19 @@ public class HotelReservationTest {
 
    //TEST CASE 4
 	@Test
-	public void addHotelCheck()
+	public void cheapestHotelCheck2()
 	{
 		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
 		HotelReservationSystem hotel1 = new HotelReservationSystem();
 		hotel.add(new HotelReservationSystem("Lakewood",110,90));
 		hotel.add(new HotelReservationSystem("Bridgewood",160,50));
 		hotel.add(new HotelReservationSystem("Ridgewood",220,150));
-		hotel1.cheapestHotel();
+		hotel1.cheapestHotel2();
 	}
 
    //TEST CASE 5
 	@Test
-	public void addHotelCheck()
+	public void addHotelCheck3()
 	{
 		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
 		HotelReservationSystem hotel1 = new HotelReservationSystem();
@@ -65,5 +65,17 @@ public class HotelReservationTest {
 		hotel.stream().forEach( entry -> {
 			entry.show3();
 		});
+	}
+
+   //TEST CASE 6
+	@Test
+	public void cheapestHotelCheck3()
+	{
+		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
+		HotelReservationSystem hotel1 = new HotelReservationSystem();
+		hotel.add(new HotelReservationSystem("Lakewood",3,110,90));
+		hotel.add(new HotelReservationSystem("Bridgewood",4,160,50));
+		hotel.add(new HotelReservationSystem("Ridgewood",5,220,150));	
+		hotel1.cheapestHotel3();
 	}
 }
