@@ -14,6 +14,8 @@ public class HotelReservationSystem {
    public int rateForRegularCustomerInWeekday;
    public int rateForRegularCustomerInWeekday;
 	public int rateForRegularCustomerInWeekend;
+   public int rateForRewardCustomerInWeekday;
+	public int rateForRewardCustomerInWeekend;
    public ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
 
 	public HotelReservationSystem() {}
@@ -31,6 +33,17 @@ public class HotelReservationSystem {
 		this.hotelName = hotelName;
 		this.rateForRegularCustomerInWeekday = rateForRegularCustomerInWeekday;
 		this.rateForRegularCustomerInWeekend = rateForRegularCustomerInWeekend;
+	}
+
+   //USE CASE 9
+   public HotelReservationSystem(String hotelName,int hotelRating,int rateForRegularCustomerInWeekday, int rateForRewardCustomerInWeekday, int rateForRegularCustomerInWeekend, int rateForRewardCustomerInWeekend)
+	{
+		this.hotelName = hotelName;
+		this.hotelRating = hotelRating;
+		this.rateForRegularCustomerInWeekday = rateForRegularCustomerInWeekday;
+		this.rateForRewardCustomerInWeekday = rateForRewardCustomerInWeekday;
+		this.rateForRegularCustomerInWeekend = rateForRegularCustomerInWeekend;
+		this.rateForRewardCustomerInWeekend = rateForRewardCustomerInWeekend;
 	}
 
 	public void show()
@@ -54,6 +67,14 @@ public class HotelReservationSystem {
       System.out.println("Rate for Regular Customer in weekends : " + this.rateForRegularCustomerInWeekend);
    }
 
+   public void show()
+	{
+		System.out.println("Hotel Name : " + this.hotelName);
+		System.out.println("Hotel Rate for Regular Customers at Weekdsys : " + this.rateForRegularCustomerInWeekday);
+		System.out.println("Hotel Rate for Regular Customers at Weekdends : " + this.rateForRegularCustomerInWeekend);
+		System.out.println("Hotel Rate for Reward Customers at Weekdsys : " + this.rateForRewardCustomerInWeekday);
+		System.out.println("Hotel Rate for Reward Customers at Weekdends : " + this.rateForRewardCustomerInWeekend);
+	}
 
    //USE CASE 2
 	void cheapestHotel()
