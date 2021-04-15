@@ -27,4 +27,17 @@ public class HotelReservationTest {
 		HotelReservationSystem hotel1 = new HotelReservationSystem();
 		hotel1.cheapestHotel();
 	}
+
+   //TEST CASE 3
+	@Test
+	public void addHotelCheck2()
+	{
+		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
+		hotel.add(new HotelReservationSystem("Lakewood",110,90));
+		hotel.add(new HotelReservationSystem("Bridgewood",160,50));
+		hotel.add(new HotelReservationSystem("Ridgewood",220,150));	
+		hotel.stream().forEach( entry -> {
+			entry.show();
+		});
+	}
 }

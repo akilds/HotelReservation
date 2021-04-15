@@ -10,15 +10,17 @@ import java.util.Optional;
 public class HotelReservationSystem {
 
 	public String hotelName;
-	public int rateForRegularCustomer;
+   int rateForRegularCustomerInWeekday;
+	int rateForRegularCustomerInWeekend;
    public ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
 
 	public HotelReservationSystem() {}
 
-	public HotelReservationSystem(String hotelName,int rateForRegularCustomer)
+	public HotelReservationSystem(String hotelName,int rateForRegularCustomerInWeekday, int rateForRegularCustomerInWeekend)
 	{
 		this.hotelName = hotelName;
-		this.rateForRegularCustomer = rateForRegularCustomer;
+		this.rateForRegularCustomerInWeekday = rateForRegularCustomerInWeekday;
+		this.rateForRegularCustomerInWeekend = rateForRegularCustomerInWeekend;
 	}
 
 	public void show()
