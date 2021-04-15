@@ -103,4 +103,17 @@ public class HotelReservationTest {
 			entry.show4();
 		});
 	}
+
+   //TEST CASE 10
+	@Test
+	public void cheapestHotelCheck5() throws HotelRegistrationException
+	{
+		ArrayList<HotelReservationSystem> hotel = new ArrayList<HotelReservationSystem>();
+		HotelReservationSystem hotel1 = new HotelReservationSystem();
+		hotel.add(new HotelReservationSystem("Lakewood",3,110,80,90,80));
+		hotel.add(new HotelReservationSystem("Bridgewood",4,160,110,50,30));
+		hotel.add(new HotelReservationSystem("Ridgewood",5,220,100,150,40));
+		hotel1.cheapestHotel5();
+	}
+	
 }
